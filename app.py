@@ -1,6 +1,4 @@
-import json, time, os, instaloader, glob, telebot
-from telegram import message
-
+import instaloader, glob, telebot
 
 # YOUR BOT TOKEN HERE
 bot_token = '******************************************'
