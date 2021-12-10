@@ -24,10 +24,7 @@ def send_welcome(message):
 # TO PROCESS USER REQUESTS
 @bot.message_handler()
 def profile_get(message):
-    id = message.text
-    if ('@' in id):
-        id = id.replace('@', '')
-    id = id.lower()
+    id = message.text.lower().replace('@', '')
     bot.reply_to(message, f'Fetching profile picture for @{id}, wait...')
     print('ID: ',id)
     mod.download_profile(id, profile_pic_only=True)
