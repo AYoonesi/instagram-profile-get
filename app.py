@@ -1,4 +1,4 @@
-import instaloader, glob, telebot
+import instaloader, glob, telebot, shutil
 
 # YOUR BOT TOKEN HERE
 bot_token = '******************************************'
@@ -29,12 +29,11 @@ def profile_get(message):
     print('ID: ',id)
     mod.download_profile(id, profile_pic_only=True)
     query = f'{id}/*.jpg'
-    for file in glob.glob(query):
-        pic = file
+    for file in glob.glob(query): pic = file
     pic = open(pic, 'rb')
     user_id = message.from_user.id
     bot.send_photo(user_id, pic)
-
+    shutil.rmtree(id)
     
  # HAVE FUN (:
 if (__name__ == '__main__'):
